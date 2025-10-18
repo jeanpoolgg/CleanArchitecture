@@ -1,13 +1,7 @@
 ﻿
-Beer erdingerBeer = new Beer()
-{
-    Name = "Erdinger",
-    Price = 3
-};
+Beer erdingerBeer = new Beer("Erdinger", 3);
 
-var coronaBeer = new Beer();
-coronaBeer.Name = "Corona";
-coronaBeer.Price = 1.5m;
+var coronaBeer = new Beer("Corona", 1.5m);
 
 Console.WriteLine(erdingerBeer.Name);
 Console.WriteLine(erdingerBeer.Name + " $ " + erdingerBeer.Price);
@@ -18,6 +12,12 @@ public class Beer
 {
     public string Name { get; set; }
     public decimal Price { get; set;}
+
+    public Beer(string name, decimal price)
+    {
+        Name = name;
+        Price = price;
+    }
 
     public string GetInfo()
     {
