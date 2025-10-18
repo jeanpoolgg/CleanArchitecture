@@ -49,3 +49,14 @@ switch(age)
         Console.WriteLine("Es de la tercera edad");
         break;
 }
+
+// === Sentencias de iteracion ===
+var names = new string[]
+{
+    "Héctor", "Juan", "Pedro"
+};
+
+for (int i = 0; i < names.Length; i++)
+{
+    Console.WriteLine(names[i]);
+}
