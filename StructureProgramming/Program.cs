@@ -85,3 +85,73 @@ void Bye()
 {
     Console.WriteLine("Adiós");
 }
+
+// === Ejemplo de programa con paradigma estructurado ===
+int limit = 10;
+var beers = new string[limit];
+int iBeers = 0;
+int op = 0;
+
+do
+{
+    Console.Clear();
+    ShowMenu();
+
+    int option = int.Parse(Console.ReadLine() ?? "0");
+
+    switch (option)
+    {
+        case 1:
+            AddBeer();
+            break;
+        case 2:
+            ListBeers();
+            break;
+        case 3:
+            Console.WriteLine("Saliendo...");
+            break;
+        default:
+            Console.WriteLine("Opción inválida");
+            break;
+    }
+
+} while (op != 3);
+
+
+void ShowMenu()
+{
+    Console.WriteLine("1. Agregar cerveza");
+    Console.WriteLine("2. Listar cervezas");
+    Console.WriteLine("3. Salir");
+    Console.Write("Seleccione una opción: ");
+}
+
+void AddBeer()
+{
+    if (iBeers < limit)
+    {
+        Console.Clear();
+        Console.Write("Ingrese el nombre de la cerveza: ");
+        string beerName = Console.ReadLine() ?? "";
+        beers[iBeers] = beerName;
+        iBeers++;
+        Console.WriteLine("Cerveza agregada exitosamente.");
+    }
+    else
+    {
+        Console.WriteLine("Límite de cervezas alcanzado.");
+    }
+    Console.WriteLine("Presione Enter para continuar...");
+    Console.ReadLine();
+}
+
+void ListBeers()
+{
+    Console.WriteLine("Cervezas almacenadas:");
+    for (int i = 0; i < iBeers; i++)
+    {
+        Console.WriteLine($"{i + 1}. {beers[i]}");
+    }
+    Console.WriteLine("Presione Enter para continuar...");
+    Console.ReadLine();
+}
