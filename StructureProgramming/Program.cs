@@ -60,3 +60,28 @@ for (int i = 0; i < names.Length; i++)
 {
     Console.WriteLine(names[i]);
 }
+
+// === Funciones ===
+
+int res3 = Area(30);
+int res1 = Area(20);
+
+Console.WriteLine(res3);
+Show("Arquitectura Limpia");
+Bye();
+
+int Area(int s)
+{
+    int res = s * s;
+    return res;
+}
+
+void Show(string msg)
+{
+    Console.WriteLine(msg);
+}
+
+void Bye()
+{
+    Console.WriteLine("Adiós");
+}
