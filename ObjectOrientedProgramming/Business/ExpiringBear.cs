@@ -5,7 +5,7 @@ namespace ObjectOrientedProgramming.Business
     {
         public DateTime ExpirationDate { get; set; }
 
-        public ExpiringBear(string name, decimal price, decimal alcohol, DateTime expirationDate) : base(name, price, alcohol)
+        public ExpiringBear(string name, decimal price, decimal alcohol, DateTime expirationDate, int quantity) : base(name, price, alcohol, quantity)
         {
             ExpirationDate = expirationDate;
         }
