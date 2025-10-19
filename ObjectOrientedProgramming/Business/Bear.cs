@@ -1,6 +1,6 @@
 ﻿namespace ObjectOrientedProgramming.Business
 {
-    public class Beer : Drink
+    public class Beer : Drink, ISalable, ISend
     {
         private const string Category = "Cerveza";
 
@@ -60,5 +60,9 @@
         {
             return Category;
         }
+
+        public decimal GetPrice() => Price;
+
+        public void Send() => Console.WriteLine("Se envía por correo: " + GetInfo());
     }
 }
