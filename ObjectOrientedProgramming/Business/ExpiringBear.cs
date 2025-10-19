@@ -9,5 +9,10 @@ namespace ObjectOrientedProgramming.Business
         {
             ExpirationDate = expirationDate;
         }
+
+        public override string GetInfo()
+        {
+            return "Cerveza con caducidad: " + Name + ", " + "Precio: $ " + Price + ", Alcohol: " + Alcohol + ", caducidad: " + ExpirationDate.Date.ToString();
+        }
     }
 }
