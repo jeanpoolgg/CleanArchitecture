@@ -9,9 +9,21 @@ var data = reportGeneratorBeer.Generate();
 // report.Save(reportGeneratorBeer, "cervezas.txt");
 report.Save(reportGeneratorHTMLBeer, "cervezas.html");
 
+Show(reportGeneratorBeer);
+
+void Show(IReportShow report)
+{
+    report.Show();
+}
+
 public interface IReportGenerator
 {
-    string Generate();
+    public string Generate();
+}
+
+public interface IReportShow
+{
+    public void Show();
 }
 
 public class BeerData
@@ -51,7 +63,7 @@ public class LimitedBeerData
     }
 }
 
-public class ReportGeneratorBeer: IReportGenerator
+public class ReportGeneratorBeer : IReportGenerator, IReportShow
 {
     private BeerData _beerData;
 
@@ -63,12 +75,20 @@ public class ReportGeneratorBeer: IReportGenerator
     public string Generate()
     {
         string data = "";
-        foreach(var beer in _beerData.GetAll())
+        foreach (var beer in _beerData.GetAll())
         {
             data += "Cerveza: " + beer + Environment.NewLine;
         }
         return data;
-    }
+    } 
+
+    public void Show()
+    {
+        foreach(var beer in _beerData.GetAll())
+        {
+            Console.WriteLine("Cerveza: " + beer);
+        }
+    }   
 }
 
 public class ReportGeneratorHTMLBeer : IReportGenerator
