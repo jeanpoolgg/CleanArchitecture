@@ -4,6 +4,11 @@ Console.WriteLine(t(new DateTime(2025,11,02,0,0,0)));
 Action<string> show =  Console.WriteLine;
 show("Hola");
 
+Action<string> hi = name => Console.WriteLine($"Hola {name}");
+hi("Héctor");
+Action<int, int> add = (a, b) => show((a+b).ToString());
+add(10, 20);
+
 // Función no pura
 DateTime Tomorrow()
 {
