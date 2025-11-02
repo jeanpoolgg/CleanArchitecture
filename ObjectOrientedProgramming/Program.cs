@@ -41,6 +41,11 @@ foreach (var item in beers.Get())
     Console.WriteLine(item.GetInfo());
 }
 
+
+Console.WriteLine($"Objetos creados: {Beer.QuantityObjects}");
+Console.WriteLine(Operations.Add(1,2));
+Console.WriteLine(Operations.Mul(10,20));
+
 void Show (Drink drink) =>  Console.WriteLine(drink.GetCategory());
 
 void SendSome(ISend some)

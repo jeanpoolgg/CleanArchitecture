@@ -11,6 +11,8 @@
         public string Name { get; set; }
         protected decimal Price { get; set; }
 
+        public static int QuantityObjects;
+
         public decimal Alcohol
         {
             get { return _alcohol; }
@@ -39,6 +41,7 @@
             Name = name;
             Price = price;
             Alcohol = alcohol;
+            QuantityObjects++;
         }
 
         public virtual string GetInfo()
