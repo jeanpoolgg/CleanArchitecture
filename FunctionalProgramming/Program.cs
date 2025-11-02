@@ -9,6 +9,15 @@ hi("Héctor");
 Action<int, int> add = (a, b) => show((a+b).ToString());
 add(10, 20);
 
+Func<int, int, int> mul = (a, b) => a * b;
+show(mul(3, 4).ToString());
+Func<int, int, string> mulString = (a, b) =>
+{
+    var res = a * b;
+    return res.ToString();
+};
+show(mulString(10, 50));
+
 // Función no pura
 DateTime Tomorrow()
 {
