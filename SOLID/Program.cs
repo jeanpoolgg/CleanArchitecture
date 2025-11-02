@@ -2,10 +2,16 @@
 beerData.Add("Corona");
 beerData.Add("Delirium");
 var reportGeneratorBeer = new ReportGeneratorBeer(beerData);
+var reportGeneratorHTMLBeer = new ReportGeneratorHTMLBeer(beerData);
 var report = new Report();
 var data = reportGeneratorBeer.Generate();
-report.Save(data, "cervezas.txt");
+// report.Save(reportGeneratorBeer, "cervezas.txt");
+report.Save(reportGeneratorHTMLBeer, "cervezas.html");
 
+public interface IReportGenerator
+{
+    string Generate();
+}
 
 public class BeerData
 {
@@ -21,7 +27,7 @@ public class BeerData
     public List<string> GetAll() => _beers;
 }
 
-public class ReportGeneratorBeer
+public class ReportGeneratorBeer: IReportGenerator
 {
     private BeerData _beerData;
 
@@ -30,29 +36,45 @@ public class ReportGeneratorBeer
         _beerData = beerData;
     }
 
-    public List<string> Generate()
+    public string Generate()
     {
-        var data = new List<string>();
-        int i = 1;
-        foreach (var beer in _beerData.GetAll())
+        string data = "";
+        foreach(var beer in _beerData.GetAll())
         {
-            data.Add(i + " Cerveza: " + beer);
-            i++;
+            data += "Cerveza: " + beer + Environment.NewLine;
         }
+        return data;
+    }
+}
+
+public class ReportGeneratorHTMLBeer : IReportGenerator
+{
+    private BeerData _beerData;
+    public ReportGeneratorHTMLBeer(BeerData beerData)
+    {
+        _beerData = beerData;
+    }
+
+    public string Generate()
+    {
+        string data = "<html><body><ul>";
+        foreach(var beer in _beerData.GetAll())
+        {
+            data += "<li>" + beer + "</li>";
+        }
+        data += "</ul></body></html>";
         return data;
     }
 }
 
 public class Report
 {
-    public void Save(List<string> data, string filePath)
+    public void Save(IReportGenerator reportGenerator, string filePath)
     {
         using(var writer = new StreamWriter(filePath))
         {
-            foreach(var beer in data)
-            {
-                writer.WriteLine(beer);
-            }
+            string data = reportGenerator.Generate();
+            writer.WriteLine(data);
         }
     }
 }   
