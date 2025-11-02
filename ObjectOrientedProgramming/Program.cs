@@ -14,6 +14,33 @@ Console.WriteLine(GetTotal(concepts));
 
 SendSome(delirium);
 
+var elements = new Collection<int>(3);
+elements.Add(10);
+elements.Add(20);
+elements.Add(30);
+elements.Add(40);
+foreach (var item in elements.Get())
+{
+    Console.WriteLine(item);
+}
+
+var names = new Collection<string>(2);
+names.Add("Héctor");
+names.Add("Juan");
+names.Add("Pedro");
+foreach (var item in names.Get())
+{
+    Console.WriteLine(item);
+}
+
+var beers = new Collection<Beer>(2);
+beers.Add(erdingerBeer);
+beers.Add(delirium);
+foreach (var item in beers.Get())
+{
+    Console.WriteLine(item.GetInfo());
+}
+
 void Show (Drink drink) =>  Console.WriteLine(drink.GetCategory());
 
 void SendSome(ISend some)
