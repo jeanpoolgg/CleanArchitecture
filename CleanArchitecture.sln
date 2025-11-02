@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunctionalProgramming", "Fu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOLID", "SOLID\SOLID.csproj", "{B60C1806-30D9-4C3E-AAA1-BE48650ACF77}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestComponent", "TestComponent\TestComponent.csproj", "{C29C0ECA-A544-4AE9-A71C-69414FAAAB52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OperationComponent", "OperationComponent\OperationComponent.csproj", "{008FF26B-2937-40FD-86DE-86A5FF26A7D9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{B60C1806-30D9-4C3E-AAA1-BE48650ACF77}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B60C1806-30D9-4C3E-AAA1-BE48650ACF77}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B60C1806-30D9-4C3E-AAA1-BE48650ACF77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C29C0ECA-A544-4AE9-A71C-69414FAAAB52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C29C0ECA-A544-4AE9-A71C-69414FAAAB52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C29C0ECA-A544-4AE9-A71C-69414FAAAB52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C29C0ECA-A544-4AE9-A71C-69414FAAAB52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{008FF26B-2937-40FD-86DE-86A5FF26A7D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{008FF26B-2937-40FD-86DE-86A5FF26A7D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{008FF26B-2937-40FD-86DE-86A5FF26A7D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{008FF26B-2937-40FD-86DE-86A5FF26A7D9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
