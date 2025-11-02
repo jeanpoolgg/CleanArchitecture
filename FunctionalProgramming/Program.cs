@@ -20,15 +20,20 @@ show(mulString(10, 50));
 
 
 List<int> numbers = [1,2,3,4,5,6,7,8,9,10];
-var evenNumbers = Filter(numbers, number => number % 2 == 0);
-var numbers2 = Filter(numbers, number => number > 5);
+
+
+Predicate<int> condition1 = x => x % 2 == 0;
+Predicate<int> condition2 = x => x > 5;
+
+var evenNumbers = Filter(numbers, condition1);
+var numbers2 = Filter(numbers, condition2);
 
 foreach (var item in numbers2)
 {
     Console.WriteLine(item);
 }
 
-List<int> Filter(List<int> list, Func<int, bool> condition)
+List<int> Filter(List<int> list, Predicate<int> condition)
 {
     var resultsList = new List<int>();
     foreach (var item in list)
