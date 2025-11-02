@@ -1,13 +1,5 @@
-﻿Console.WriteLine(Tomorrow());
-Console.WriteLine(TomorrowPure(new DateTime(2025, 11, 02, 00, 00, 00)));
-
-var beer = new Beer()
-{
-    Name = "Delirium Tremens"
-};
-
-Console.WriteLine(ToUpperPure(beer).Name);
-Console.WriteLine(beer.Name);
+﻿var t = TomorrowPure;
+Console.WriteLine(t(new DateTime(2025,11,02,0,0,0)));
 
 
 // Función no pura
