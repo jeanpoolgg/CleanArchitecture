@@ -1,6 +1,7 @@
-﻿var beerData = new BeerData();
+﻿BeerData beerData = new BeerData();
 beerData.Add("Corona");
 beerData.Add("Delirium");
+beerData.Add("Erdinger");
 var reportGeneratorBeer = new ReportGeneratorBeer(beerData);
 var reportGeneratorHTMLBeer = new ReportGeneratorHTMLBeer(beerData);
 var report = new Report();
@@ -25,6 +26,29 @@ public class BeerData
     public void Add(string beer) => _beers.Add(beer);
 
     public List<string> GetAll() => _beers;
+}
+
+
+public class LimitedBeerData
+{
+    private BeerData _beerData = new BeerData();
+    private int _limit;
+    private int _count = 0;
+
+    public LimitedBeerData(int limit)
+    {
+        _limit = limit;
+    }
+
+    public void Add(string beer)
+    {
+        if (_count >= _limit)
+        {
+            throw new InvalidOperationException("Límite de cervezas alcanzado");
+        }
+        _beerData.Add(beer);
+        _count++;
+    }
 }
 
 public class ReportGeneratorBeer: IReportGenerator
