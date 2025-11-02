@@ -1,6 +1,8 @@
 ﻿var t = TomorrowPure;
 Console.WriteLine(t(new DateTime(2025,11,02,0,0,0)));
 
+Action<string> show =  Console.WriteLine;
+show("Hola");
 
 // Función no pura
 DateTime Tomorrow()
