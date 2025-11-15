@@ -1,43 +1,17 @@
-﻿IF f = new F();
-var S = new S(f);
+﻿using BusinessComponent;
+using RepositoryComponent;
+
+var beerManager = new BeerManager(new BeerRepository());
+beerManager.Add("Delirium Red");
+beerManager.Add("London Porter");
+Console.WriteLine(beerManager.Get());
 
 
-// ---------------------
-public class S
+// clase provisional
+public class DefaultRepository : IRepository
 {
-    private readonly IF _f;
+    public void Add(string name)
+    {}
 
-    public S(IF f)
-    {
-        _f = f;
-    }
-
-    public void Do()
-    {
-        _f.Some();
-    }
-}
-
-// ----------------------
-public interface IF 
-{
-    public void Some();
-}
-
-// ----------------------
-public class F : IF
-{
-    public void Some()
-    {
-        // CODIGO
-    }
-}
-
-// ----------------------
-public class F2 : IF
-{
-    public void Some()
-    {
-        // CODIGO
-    }
+    public string Get() => "algo";
 }
