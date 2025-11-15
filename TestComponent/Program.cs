@@ -1,10 +1,65 @@
-﻿using BeersRepositoryComponent;
-using OperationComponent;
+﻿
+public interface IA
+{
+    void MethodA();
+}
 
-var operations = new Operations();
+public interface IB
+{
+    void MethodB();
+}
 
-var result = operations.Mul(2, 3);
-Console.WriteLine($"Result: {result}");
-Console.ReadLine();
+public interface IC
+{
+    void MethodC();
+}
 
-var beers = new Beers();
+public class A : IA
+{
+    private readonly IB _b;
+
+    public A(IB b)
+    {
+        _b = b;
+    }
+
+    public void MethodA()
+    {
+    }
+}
+
+public class B : IB
+{
+    private readonly IC _c;
+
+    public B(IC c)
+    {
+        _c = c;
+    }
+
+    public void MethodB()
+    {
+    }
+}
+
+public class C : IC
+{
+    private readonly IA _a;
+
+    public C(IA a)
+    {
+        _a = a;
+    }
+
+    public void MethodC()
+    {
+    }
+}
+
+public static class Program
+{
+    public static void Main()
+    {
+        Console.WriteLine("El programa compila correctamente.");
+    }
+}
