@@ -1,65 +1,43 @@
-﻿
-public interface IA
-{
-    void MethodA();
-}
+﻿IF f = new F();
+var S = new S(f);
 
-public interface IB
-{
-    void MethodB();
-}
 
-public interface IC
+// ---------------------
+public class S
 {
-    void MethodC();
-}
+    private readonly IF _f;
 
-public class A : IA
-{
-    private readonly IB _b;
-
-    public A(IB b)
+    public S(IF f)
     {
-        _b = b;
+        _f = f;
     }
 
-    public void MethodA()
+    public void Do()
     {
+        _f.Some();
     }
 }
 
-public class B : IB
+// ----------------------
+public interface IF 
 {
-    private readonly IC _c;
+    public void Some();
+}
 
-    public B(IC c)
+// ----------------------
+public class F : IF
+{
+    public void Some()
     {
-        _c = c;
-    }
-
-    public void MethodB()
-    {
+        // CODIGO
     }
 }
 
-public class C : IC
+// ----------------------
+public class F2 : IF
 {
-    private readonly IA _a;
-
-    public C(IA a)
+    public void Some()
     {
-        _a = a;
-    }
-
-    public void MethodC()
-    {
-    }
-}
-
-public static class Program
-{
-    public static void Main()
-    {
-        Console.WriteLine("El programa compila correctamente.");
+        // CODIGO
     }
 }
